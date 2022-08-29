@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact | Matt Farley
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="canonical" href="https://mattfarley.ca">
+    <link href="../img/favicon-32.png" rel="shortcut icon" type="image/png">
+    <link rel="stylesheet" href="{% static '../../static/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/brands.min.js" integrity="sha512-helwW+1jTcWdOarbAV4eDgcPQg/WEM20j9oo7HE5caJ8hZXdW0mgYGuxafhlf4j4gYAuOL8WsX1QTy6HUnpWKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://kit.fontawesome.com/9bdc906322.js"></script>
+    <script async="" src="https://cdn.splitbee.io/sb.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+</head>
+
+<body>
+    <nav class="navbar is-transparent is-planner animate-fadeDown">
+        <div class="container">
+            <div class="navbar-brand"><a class="navbar-item" href="{% url 'Home' %}"><i class="fa-brands fa-meetup fa-5x"></i></a></div>
+            <div class="navbar-menu" id="navMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <p class="buttons"><a class="button is-medium tooltip is-tooltip-bottom" data-tooltip="Reset" onclick="document.getElementById('form').reset();"><span class="icon is-small"><i class="fas fa-undo-alt"></i></span></a><a class="button is-medium tooltip is-tooltip-bottom"
+                                data-tooltip="Close" href="/"><span class="icon is-small"><i class="fas fa-times"></i></span></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="is-form-page">
+        <section class="is-white has-text-centered">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8"><img class="avatar" src="https://res.cloudinary.com/dgbe30e7f/image/upload/v1661773954/media/mf-avatar_p7dglv.svg"">
+                        <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">Thanks for taking the time to reach out. How can I help you today?</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% if messages %}
+        {% for msg in messages %}
+      <center>  <h3 style="color: rgb(111, 36, 36); font-size: 25px; margin-top: 20px;">{{msg}}</h3></center>
+        {% endfor %}
+        {% endif %}
+        <section class="is-white">
+            <div class="container">
+                <form accept-charset="UTF-8" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="columns is-centered">
+                        <div class="column is-half">
+                            <div class="field">
+                                <label class="label">Name</label>
+                                <div class="control is-expanded">
+                                    <input class="input is-large" name="name" type="text" required style="background-color: rgb(92, 85, 85); color: white;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-half">
+                            <div class="field">
+                                <label class="label">Email</label>
+                                <div class="control is-expanded">
+                                    <input class="input is-large" name="email" type="email" required style="background-color: rgb(92, 85, 85); color: white;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column">
+                            <div class="field">
+                                <label class="label">Message</label>
+                                <div class="control is-expanded">
+                                    <textarea class="textarea is-large" name="message" rows="5" required style="background-color: rgb(92, 85, 85); color: white;"></textarea>
+                                </div>
+                            </div>
+                            <div class="field is-hidden">
+                                <label class="is-hidden"></label>
+                                <div class="control is-expanded is-hidden">
+                                    <input class="is-hidden" name="bot_vortex" type="hidden">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column is-one-third">
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-primary is-outlined is-medium is-fullwidth is-rounded">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+    <script src="{% static '../../static/js/main-min.js' %}"></script>
+    <script src="https://usebasin.com/f/363b98eca5af/ahoy.js" async="" defer=""></script>
+</body>
+
+</html>

@@ -1,0 +1,265 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Manish Chand | Django&Python, Backend Developer
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="canonical" href="">
+    <meta property="og:site_name" content="Matt Farley">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Matt Farley | Designer, Frontend Developer &amp; Mentor">
+    <meta property="og:description" content="I design and code beautifully simple things, and I love what I do.">
+    <meta property="og:image:secure_url" content="https://mattfarley.ca/img/mf-og-brand.png">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="I design and code beautifully simple things, and I love what I do.">
+    <meta name="twitter:image" content="https://mattfarley.ca/img/mf-og-brand.png">
+    <meta name="twitter:image:alt" content="Designer and developer tool illustrations">
+    <link href="../img/favicon-32.png" rel="shortcut icon" type="image/png">
+    <link rel="stylesheet" href="{% static '../../static/css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/brands.min.js" integrity="sha512-helwW+1jTcWdOarbAV4eDgcPQg/WEM20j9oo7HE5caJ8hZXdW0mgYGuxafhlf4j4gYAuOL8WsX1QTy6HUnpWKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://kit.fontawesome.com/9bdc906322.js"></script>
+    <script async="" src="https://cdn.splitbee.io/sb.js"></script>
+</head>
+
+<body>
+    <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand"><a class="navbar-item" href="/"><i class="fa-brands fa-meetup fa-5x"></i></a><a class="navbar-burger" role="button"
+                    aria-label="menu" aria-expanded="false" data-target="#navMenu"><span aria-hidden="true"></span><span
+                        aria-hidden="true"></span><span aria-hidden="true"></span></a></div>
+            <div class="navbar-menu is-shadowless" id="navMenu">
+                <div class="navbar-start"></div>
+                <div class="navbar-end">
+                    <div class="navbar-item"><a class="button is-primary is-outlined is-rounded has-text-weight-normal"
+                            href="{% url 'Messsage' %}">Say Hello </a></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% if messages %}
+        {% for msg in messages %}
+            <center><h3>{{msg}}</h3></center>
+        {% endfor %}
+    {% endif %}
+
+    <section class="hero is-white has-text-centered">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h1 class="title is-spaced is-size-1-desktop is-size-2-tablet is-size-3-mobile">Django,
+                            Backend Developer &amp; Python Programmer</h1>
+                        <h2 class="subtitle is-size-4-tablet">I can write simple and beautiful code that can do complex things, and I love
+                            what I do.</h2><img class="avatar" src="https://res.cloudinary.com/dgbe30e7f/image/upload/v1661766809/media/IMG_20211231_204815-modified_enwpkb.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot">
+            <div class="container"><img class="is-bottom" src="https://res.cloudinary.com/dgbe30e7f/image/upload/v1661766489/media/hero-devices_ejf1ad.svg"></div>
+        </div>
+    </section>
+    <section class="section is-medium is-primary has-text-centered is-long">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-fifths">
+                    <h1 class="title is-spaced is-size-3-desktop is-size-4-mobile">Hi, I’m Manish. Nice to meet you.</h1>
+                    <h2 class="subtitle is-size-5-desktop has-text-weight-normal">Since beginning my journey as a
+                        Backend and Python Developer over 2 years ago, I've done many django projects thats helps me to graps the core concepts of Django as well as Python, I Have no work experience as a Django Developer Cause am completing my computer degree but am always ready for new challenges.
+                        I'm quietly confident, naturally curious, and try to tackel each new problem with a fresh mindset.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section skills has-text-centered">
+        <div class="container is-narrow">
+            <div class="box">
+                <div class="content">
+                    <div class="columns is-centered">
+                        <div class="column"><i class="fa-brands fa-python fa-5x"></i>
+                            <h1 class="title is-size-4 is-spaced">Python Programmer</h1>
+                            <p>Python is my first programming Languages.I been writing Python code and learning all the different Data-Stucuture for last 3 Years and i see myself as a intermidate in Python</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Things I enjoy designing:</p>
+                            <p>Problem Solving, WebScraping, WebApps, Automation</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Programming Tools:</p>
+                            <ul>
+                                <li>Python</li>
+                                <li>BeautifulSoup</li>
+                                <li>Selinium</li>
+                                <li>Django</li>
+                                <li>Socket</li>
+                               
+                            </ul>
+                        </div>
+                        <div class="column"><a style="text-decoration:none; color:rgb(36, 32, 32);"><i class="fa-solid fa-code fa-5x"></i></a>
+                            <h1 class="title is-size-4 is-spaced">Backend Developer</h1>
+                            <p>I prefer to use Python & Django for my backend developement.Django has many pre build libary that we can use to make our lives easy.I can work with both Sql and no-Sql databases.Django Also provides its Django Rest FrameWork for easy creation of apis.</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Languages I speak:</p>
+                            <p>Python, HTML,CSS, Django, Git</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Dev Tools:</p>
+                            <ul>
+                                <li>Vs Code</li>
+                                <li>cloudinary</li>
+                                <li>AWS</li>
+                                <li>Bulma</li>
+                                <li>SQL</li>
+                                <li>Github</li>
+                                <li>Bootstrap</li>
+                                <li>Terminal</li>
+                                <li>Postman</li>
+                            </ul>
+                        </div>
+                        <div class="column"><i class="fa-solid fa-graduation-cap fa-5x"></i>
+                            <h1 class="title is-size-4 is-spaced">Student</h1>
+                            <p>Am a undergraduate BCA student.I genuinely care about people, and love to work and learn from others programmers.</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Experiences I draw from:</p>
+                            <p>By Reading books,Reading other developer code and also google stuff online</p>
+                            <p class="list-title has-text-primary has-text-weight-normal">Records</p>
+                            <ul>
+                                <li>10 Board Scoring First Division</li>
+                                <li>+2 Science with programming Second Division</li>
+                                <li>+3 Bachelor in Computer Applications</li>
+                                <li>Udemy Django course mentor Dennis ivy</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section projects is-medium is-white has-text-centered">
+        <div class="container is-narrow">
+            <h1 class="title is-spaced is-size-3-desktop is-size-4-mobile">My Recent Work</h1>
+            <h2 class="subtitle is-size-5-desktop">Here are a few past projects I've worked on. Want to see more?
+                <a class="has-text-weight-normal" href="mailto:matt@pendeavor.com">Email me</a>.</h2>
+            <div class="project-grid">
+                <div class="columns is-multiline is-mobile">
+
+                    {% for project in projects %}
+
+                    <div class="column is-12-mobile is-half-tablet is-one-third-desktop">
+                        <figure class="image is-3by2"><img class="project-thumb"
+                                src="{{project.project_image.url}}" width="50%">
+                            <figcaption>
+                                <h1 class="title is-size-5 is-size-4-widescreen">{{project.project_des}}.</h1><a
+                                    class="button is-primary is-outlined is-rounded" href="{{project.project_link}}"
+                                    target="_blank"><span>Visit Website</span><span class="icon"><i
+                                            class="fas fa-angle-right"></i></span>
+                                        <a style="margin-top: 20px;"
+                                        class="button is-primary is-outlined is-rounded" href="{{project.project_code_link}}"
+                                        target="_blank"><span>View Code</span><span class="icon"><i
+                                            class="fas fa-angle-right"></i>
+                                        </a>
+                                    
+                            </figcaption>
+                            <div class="overlay"></div>
+                        </figure>
+                    </div>
+                
+                {% endfor %}
+                    
+                  
+                </div>
+            </div>
+            <div class="columns is-centered">
+                <div class="column"><a class="button is-primary is-outlined is-rounded is-medium has-text-weight-normal"
+                        href="https://github.com/manishcad" target="_blank"><span class="icon"><i class="fa-brands fa-github"></i></span><span>Follow Me On Github</span></a></div>
+            </div>
+        </div>
+    </section>
+    <section class="section clients is-medium is-white has-text-centered has-border-top">
+        <div class="container is-narrow">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <h1 class="title is-size-3-desktop is-size-4-tablet is-size-5-mobile">Here are some of my certificate of completion:</h1>
+                </div>
+            </div>
+            <div class="client-grid">
+                <div class="columns is-multiline is-mobile">
+                    {% for certificate in certificates %}
+                    <div class="column is-half-mobile is-one-quarter-tablet">
+                        <figure class="image is-2x1"><img class="client-logo" src="{{certificate.certificate_image.url}}"/></figure>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section startups has-text-centered">
+        <div class="container is-narrow" style="margin-top: 70px;">
+           
+            <div class="callout">
+                <div class="columns is-centered">
+                    <div class="column">
+                        <h1 class="title is-spaced has-text-weight-bold">Interested in collaborating with me?</h1>
+                        <h2 class="subtitle is-size-5-desktop">I’m always open to discussing product design work or
+                            partnership opportunities.</h2><a
+                            class="button is-primary is-outlined is-rounded is-medium has-text-weight-normal"
+                            href="{% url 'Work' %}"><span class="icon"><i
+                                    class="fa-regular fa-message-lines"></i></span><span>Start a conversation</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section call-to-action is-primary has-text-centered">
+        <div class="container is-narrow">
+            <div class="box">
+                <div class="columns level">
+                    <div class="column level-item">
+                        <h1 class="title">Start a project</h1>
+                    </div>
+                    <div class="column level-item">
+                        <p>Interested in working together? We should queue up a time to chat. I’ll buy the coffee.</p>
+                    </div>
+                    <div class="column level-item"><a
+                            class="button is-success is-outlined is-rounded is-medium has-text-weight-normal"
+                            href="{% url 'Contact' %}"><span class="icon"><i
+                                    class="fa-regular fa-hand-horns"></i></span><span>Let's do this</span></a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="section is-primary is-small has-text-centered">
+        <div class="container is-narrow"><a class="logo has-text-white" href="/"><i class="fa-brands fa-meetup fa-5x"></i></a>
+            <div class="columns is-centered">
+                <div class="column is-one-third">
+                    <h1 class="title is-size-4-touch has-text-weight-normal">Living, learning, &amp; leveling up one day
+                        at a time.</h1>
+                </div>
+            </div>
+            <div class="social-icons">
+                <p class="field">
+                    <a class="button is-medium" href="https://www.linkedin.com/in/manish-chand-3b7b4a158/"
+                        target="_blank"><span class="icon is-small"><i
+                                class="fab fa-linkedin-in fa-fw"></i></span></a><a class="button is-medium"
+                        href="https://github.com/manishcad" target="_blank"><span class="icon is-small"><i class="fa-brands fa-github"></i></span></a>
+              <a
+                        class="button is-medium" href="mailto:manishtochand@gmail.com"><span class="icon is-small"><i
+                                class="far fa-envelope fa-fw"></i></span></a>
+                        <a class="button is-medium" href="https://www.instagram.com/manishcad/" target="_blank"><span class="icon is-small"><i class="fa-brands fa-instagram"></i></span></a>
+                </p>
+            </div>
+            <div class="copyright">Handcrafted by me<span class="icon has-white-text" style="vertical-align:middle;"><i
+                        class="far fa-copyright"></i></span>Manishcad</div>
+            <div class="made-by-bulma"><a href="https://bulma.io"><img
+                        src="https://bulma.io/images/made-with-bulma--white.png" alt="Made with Bulma" width="163"
+                        height="31"></a></div>
+        </div>
+    </footer>
+    <script src="{% static '../../static/js/main-min.js' %}"></script>
+</body>
+
+</html>
