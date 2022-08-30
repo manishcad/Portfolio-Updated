@@ -14,7 +14,6 @@ from pathlib import Path
 import os
 import dj_database_url
 import mimetypes
-from decouple import Config
 
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
