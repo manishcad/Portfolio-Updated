@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import dj_database_url
 import mimetypes
+from decouple import Config
 
 mimetypes.add_type("text/css", ".css", True)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-hpjdjz5#o&)4@370k%#fn7z5$oxetebqwu385(w=&o*c23@hzn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['manishcad.herokuapp.com', '127.0.0.1']
 
@@ -150,6 +151,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'osqdbafcqrbbsdhw'  # my gmail password
+EMAIL_HOST_PASSWORD = "osqdbafcqrbbsdhw"  # my gmail password
 EMAIL_HOST_USER = 'manishtochand@gmail.com'  # my gmail username
 EMAIL_PORT = 587

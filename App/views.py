@@ -3,10 +3,12 @@ from django.shortcuts import render, redirect
 from .models import Certificate, Projects
 from django.core.mail import send_mail
 from django.contrib import messages
+
 # Create your views here.
 
 
 def home(request):
+
     projects = Projects.objects.all()[::-1]
     certificates = Certificate.objects.all()[::-1]
     print(certificates)
@@ -52,7 +54,7 @@ def message(request):
             print(e)
             messages.warning(
                 request, "Sorry Some Error Occur Please Try Again")
-            return redirect("Message")
+            return redirect("Messsage")
     return render(request, 'message.html')
 
 
