@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-hpjdjz5#o&)4@370k%#fn7z5$oxetebqwu385(w=&o*c23@hzn
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['manishcad.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['manishcad.herokuapp.com', '127.0.0.1','web-production-ce07.up.railway.app']
 
 
 # Application definition
