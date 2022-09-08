@@ -14105,8 +14105,16 @@ input[name="carousel"] {
             <div class="navbar-menu is-shadowless" id="navMenu">
                 <div class="navbar-start"></div>
                 <div class="navbar-end">
+                    {% if not request.user.is_authenticated %}
                     <div class="navbar-item"><a class="button is-primary is-outlined is-rounded has-text-weight-normal"
-                            href="{% url 'Messsage' %}">Say Hello </a></div>
+                                href="{% url 'Login' %}">Login</a></div>
+                    {% endif %}
+                    <div class="navbar-item"><a class="button is-primary is-outlined is-rounded has-text-weight-normal"
+                                    href="{% url 'Messsage' %}">Say Hello </a></div>
+                    {% if request.user.is_authenticated %}
+                     <div class="navbar-item"><a class="button is-primary is-outlined is-rounded has-text-weight-normal"
+                                    href="{% url 'Logout' %}">Logout </a></div>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -14222,8 +14230,8 @@ input[name="carousel"] {
                                     target="_blank"><span>Visit Website</span><span class="icon"><i
                                             class="fas fa-angle-right"></i></span>
                                         <a style="margin-top: 20px;"
-                                        class="button is-primary is-outlined is-rounded" href="{{project.project_code_link}}"
-                                        target="_blank"><span>View Code</span><span class="icon"><i
+                                        class="button is-primary is-outlined is-rounded" href="{% url 'Single_project' project.id %}"
+                                        target="_blank"><span>View Project</span><span class="icon"><i
                                             class="fas fa-angle-right"></i>
                                         </a>
                                     
@@ -14234,8 +14242,11 @@ input[name="carousel"] {
                 
                 {% endfor %}
                     
-                  
+                 
                 </div>
+                {% for num in paginator.page_range %}
+                <a href="?page={{num}}">{{num}}</a>
+              {% endfor %}
             </div>
             <div class="columns is-centered">
                 <div class="column"><a class="button is-primary is-outlined is-rounded is-medium has-text-weight-normal"
@@ -14255,6 +14266,10 @@ input[name="carousel"] {
                     
                     <div class="column is-half-mobile is-one-quarter-tablet">
                         <figure class="image is-2x1"><img class="client-logo" src="https://res.cloudinary.com/dgbe30e7f/image/upload/v1661833508/Certificate/hacker_rank_uduzff.png"/></figure>
+                    </div>
+
+                    <div class="column is-half-mobile is-one-quarter-tablet">
+                        <figure class="image is-2x1"><img class="client-logo" src="https://res.cloudinary.com/dgbe30e7f/image/upload/v1662639196/media/DJANGO_COURSE_CERTIFICATE_tooiey.jpg"/></figure>
                     </div>
                    
                 </div>
