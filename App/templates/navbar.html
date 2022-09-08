@@ -1,0 +1,41 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+<!-- Dev Search UI -->
+<link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+
+<!-- Header Section -->
+<header class="header">
+    <div class="container container--narrow">
+      <a href="/" class="header__logo">
+        <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="{% url 'Profiles' %}">Developers</a></li>
+          <li class="header__menuItem"><a href="{% url 'Projects' %}">Projects</a></li>
+          
+          {% if not request.user.is_authenticated %}
+          <li class="header__menuItem"><a href="{% url 'Login' %}" class="btn btn--sub">Login/Sign Up</a></li>
+          {% else %}
+          <li class="header__menuItem"><a href="{% url 'Inbox' %}">Inbox</a></li>
+          <li class="header__menuItem"><a href="{% url 'Account' %}">My Account</a></li>
+          <li class="header__menuItem"><a href="{% url 'Create_project' %}">Add Project</a></li>
+          <li class="header__menuItem"><a href="{% url 'Logout' %}" class="btn btn--sub">Logout</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+ 
+  {% if messages %}
+    {% for msg in messages %}
+   <center> <p style="color: red; font-size: 25px;">{{msg}}</p></center>
+    {% endfor %}
+  {% endif %}
+  

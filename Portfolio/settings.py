@@ -24,12 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-hpjdjz5#o&)4@370k%#fn7z5$oxetebqwu385(w=&o*c23@hzn'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['manishcad.herokuapp.com', '127.0.0.1','web-production-ce07.up.railway.app']
+ALLOWED_HOSTS = ['manishcad.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -109,6 +109,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Authentication backends
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -133,9 +138,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dgbe30e7f',
-    'API_KEY': '761954252784968',
-    'API_SECRET': 'Tk86498ouwBdMrzVE5L9b6jrwD0'
+    'CLOUD_NAME': os.environ.get('CLOUD_NAME'),
+    'API_KEY': os.environ.get('API_KEY'),
+    'API_SECRET': os.environ.get('API_SECRET')
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -150,6 +155,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = "osqdbafcqrbbsdhw"  # my gmail password
+EMAIL_HOST_PASSWORD = os.environ.get(
+    'EMAIL_HOST_PASSWORD')  # my gmail password
 EMAIL_HOST_USER = 'manishtochand@gmail.com'  # my gmail username
 EMAIL_PORT = 587

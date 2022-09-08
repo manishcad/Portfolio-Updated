@@ -1,0 +1,105 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+
+<style>
+  .inputid{
+    width: 100%;
+    height: 5vh;
+  }
+</style>
+
+  <!-- Main Section -->
+  <main class="singleProject my-md">
+    <div class="container">
+      <div class="layout">
+        <div class="column column--1of3">
+          <h3 class="singleProject__subtitle">Tools & Stacks</h3>
+          <div class="singleProject__toolStack">
+            
+            <span class="tag tag--pill tag--sub tag--lg">
+              <small></small>
+            </span>
+            
+          </div>
+         
+          <a class="singleProject__liveLink" href="" target="_blank"><i class="im im-external-link"></i>Source Code
+          </a>
+      
+        </div>
+        <div class="column column--3of3">
+          <a href="media/project.feature_image.url"><img class="singleProject__preview" src="{{project.project_image.url}}" alt="portfolio thumbnail" width="100%" /></a>
+          <a href="User_profile project.owner.id " class="singleProject__developer">project.owner.name</a>
+          <h2 class="singleProject__title">project.title</h2>
+          <h3 class="singleProject__subtitle">About the Project</h3>
+          <div class="singleProject__info">
+            project.description
+          </div>
+
+          <div class="comments">
+            <h3 class="singleProject__subtitle">Feedback</h3>
+            <h5 class="project--rating">
+              project.vote_ratio% Postitive Feedback (project.vote_total Votes)
+            </h5>
+<!--
+            <form class="form" action="" method="POST">
+              {% csrf_token %}
+             
+             {% if request.user.profile == project.owner %}
+                <p>You Cant Review Your Own Project</p>
+              {% elif request.user.is_authenticated %}  
+              <div class="form__field">
+                <label for="formInput#textarea">Comments: </label>
+
+                
+                {{form.body}}
+                <div style="background-color: red;" >{{form.value}}</div>
+                
+              </div>
+              <input class="btn btn--sub btn--lg" type="submit" value="Comments" />
+              {% else %}
+              <p>Login In to review the project <a href="{% url 'Login' %}?next={{request.path}}">Login In</a></p>
+              {% endif %}
+              
+            </form>
+--> 
+   <!--         <div class="commentList">
+              
+              {% for review in project.review_set.all %}
+              {% if review.body %}
+              
+               
+                
+               
+                <div class="comment">
+                  <a href="{% url 'User_profile' review.owner.id %}">
+                    <img class="avatar avatar--md"
+                      src="{{review.owner.profile_image.url}}" alt="user" />
+                  </a>
+                  <div class="comment__details">
+                    <a href="{% url 'User_profile' review.owner.id %}" class="comment__author">{{review.owner.name}}</a>
+                    <p class="comment__info">
+                      {{review.body|linebreaksbr}}
+                    </p>
+                  </div>
+                </div>
+                
+                
+                
+               {% endif %}
+              
+           
+              {% endfor %}
+             
+              
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  {% endblock %}
