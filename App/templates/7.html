@@ -882,6 +882,11 @@ img {
     margin-top: 2rem;
 }
 
+.form-control{
+    font-size: 20px;
+    height: 80px;
+    width: 100%;
+}
 /*
 * Project: Mumble UI
 * Version: v0.1.1
@@ -956,10 +961,10 @@ img {
     <main class="singleProject my-md">
         {% if messages %}
         {% for msg in messages %}
-            <center><p>{{msg}}</p></center>
+            <center><p style="font-size: 20px; font-weight:bold;">{{msg}}</p></center>
         {% endfor %}
         {% endif %}
-        <div class="container">
+        <div class="container" style="padding-top: 30px;">
             <div class="layout" style="display: flex; justify-content:space-around;">
                 <div class="column column--1of3">
                     <h3 class="singleProject__subtitle">Tools & Stacks</h3>
@@ -978,9 +983,9 @@ img {
                     </a>
 
                 </div>
-                <div class="column column--2of3" style="display: flex; flex-direction: column; align-items: flex-start;">
+                <div class="column column--2of3" style="display: flex; flex-direction: column; align-items: center;">
                     <a href="{{project.project_image.url}}"><img class="singleProject__preview" src="{{project.project_image.url}}" alt="portfolio thumbnail" /></a>
-                    <a href="/user-profile/1" class="singleProject__developer">Manish Chand</a>
+                    <a href="https://github.com/manishcad" class="singleProject__developer" target="_blank">Manish Chand</a>
                     <h2 class="singleProject__title">{{project.project_name}}</h2>
                     <h3 class="singleProject__subtitle">About the Project</h3>
                     <div class="singleProject__info">
@@ -992,20 +997,19 @@ img {
                 
             </div>
             <div class="comments" style="display: flex; flex-direction:column; align-items:center; background-color: ;">
-                <h3 class="singleProject__subtitle">Feedback</h3>
+                
                 <h5 class="project--rating">
                     Total Up Votes ({{project.total_up_vote}} Votes)
                 </h5>
+                <h3 class="singleProject__subtitle">Give Us Your Feedback</h3>
                 {% if request.user.is_authenticated %}
 
-                    <form method="POST" style="width: 50%; text-align: center;">
+                    <form method="POST" style="width: 50%; text-align: center; background-color: ;">
                         {% csrf_token %}
-                        <textarea name="comment" class="form-control" placeholder="Write Your Comment Here....." style="width: 100%;font-size: 20px;"></textarea>
-                      <center>  <select name="vote" style="margin-top: 10px;" required>
-                            <option>Up Vote</option>
-                            <option>Down Vote</option>
-                        </select>
-                    </center>
+                        
+                         <div>   {{form.body}}</div>
+                          
+                     <div style="margin-top: 10px;"> <center>{{form.vote}}</center></div>
                         <button type="submit" class="btn btn-info" style="background-color: rgb(61, 61, 235); margin-top: 20px;">Comment</button>
                     </form>
                 {% else %}
@@ -1013,7 +1017,7 @@ img {
                 {% endif %}
 
                 
-
+<center><h3>Comment Sections...</h3></center>
                 <div class="commentList">
                     {% for review in reviews %}
                         {% if review.body %}

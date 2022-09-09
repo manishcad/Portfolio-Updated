@@ -35,6 +35,9 @@ class Review(models.Model):
     body = models.TextField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        unique_together = [['owner', 'project']]
+
     def __str__(self):
         return self.vote
 
