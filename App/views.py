@@ -1,11 +1,11 @@
-
+from django.db import IntegrityError
 from django.shortcuts import render, redirect
 from .models import Certificate, Projects, Review
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.views import logout_then_login
-from .forms import Register_Form
+from .forms import Register_Form, Review_Form
 from django.core.paginator import Page, PageNotAnInteger, Paginator, EmptyPage
 # Create your views here.
 
@@ -90,13 +90,29 @@ def work(request):
 def single_project(request, pk):
     project = Projects.objects.get(id=pk)
     reviews = Review.objects.filter(project=pk)
-
+    form = Review_Form()
     if request.method == "POST":
         if request.user.is_authenticated:
 
             user = request.user
             vote = request.POST.get('vote')
-            if vote == "Up Vote":
+            form = Review_Form(request.POST)
+            print(form.is_valid())
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.project = project
+                instance.owner = user
+                try:
+                    instance.save()
+                    project.total_up_vote = project.total_up_vote+1
+                    project.save()
+                    return redirect('Single_project', pk)
+                except IntegrityError as e:
+                    print(e)
+                    messages.warning(
+                        request, 'You Have Already Commented To This Project')
+            else:
+                """if vote == "Up Vote":
                 project.total_up_vote = project.total_up_vote+1
                 project.save()
             else:
@@ -106,9 +122,9 @@ def single_project(request, pk):
                           vote=vote, body=message)
             form.save()
         else:
-            print("Authemtication Error")
-
-    context = {'project': project, 'reviews': reviews}
+            print("Authemtication Error")"""
+            print("ERROR WHILE COMMENTING")
+    context = {'project': project, 'reviews': reviews, 'form': form}
     return render(request, '7.html', context)
 
 
@@ -150,7 +166,3 @@ def register(request):
 
     context = {'form': form, 'error': error}
     return render(request, 'register.html', context)
-
-
-def new_single_project(request, pk):
-    return render(request, '7.html')

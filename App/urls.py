@@ -17,7 +17,7 @@ urlpatterns = [
     path("register", views.register, name="Register"),
 
 
-    path('new-single-project/<str:pk>', views.new_single_project, name="Single")
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
