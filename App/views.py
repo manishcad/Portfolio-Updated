@@ -106,6 +106,8 @@ def single_project(request, pk):
                     instance.save()
                     project.total_up_vote = project.total_up_vote+1
                     project.save()
+                    messages.success(
+                        request, f"Thanks For Your Vote {request.user}")
                     return redirect('Single_project', pk)
                 except IntegrityError as e:
                     print(e)
